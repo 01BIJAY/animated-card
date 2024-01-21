@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    gap: 5vw;
+}
+
+.animated-card,
+.animated-card2 {
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 500px;
+    width: 350px;
+    background: rgb(29, 11, 11);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.animated-card span {
+    color: #800000;
+    font-size: 10em;
+    z-index: 10;
+}
+
+.animated-card2 span {
+    color: #2600ff;
+    font-size: 10em;
+    z-index: 10;
+}
+
+h1 {
+    color: #fff;
+    z-index: 10;
+}
+
+.animated-card::before {
+    position: absolute;
+    content: '';
+    height: 500px;
+    width: 350px;
+    background: #800000;
+    border-radius: 15px;
+    z-index: -1;
+    transition: 0.3s;
+    animation: animate 2s linear infinite;
+}
+
+.animated-card:hover::before {
+    height: 520px;
+    width: 370px;
+}
+
+@keyframes animate {
+    50% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.animated-card2::before {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 180%;
+    background: #2600ff;
+    transform: rotate(45deg);
+}
+
+.animated-card2 {
+    overflow: hidden;
+}
+
+.animated-card2:hover::before {
+    animation: animate2 2s linear infinite;
+}
+
+@keyframes animate2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animated-card2::after {
+    position: absolute;
+    content: '';
+    inset: 10px;
+    background: #4e4b4b;
+    border-radius: 8px;
+}
